@@ -10,7 +10,7 @@ MLLM Implicit Feedback
   
 [![UniWorld-V1](https://img.shields.io/badge/Arxiv-2506.03147-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
 [![Model & Data](https://img.shields.io/badge/🤗-Model-blue.svg)](https://huggingface.co/collections/chestnutlzj/uniworld-r1-68dc3ecce74f5d37314d59f4)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](https://github.com/PKU-YuanGroup/UniWorld-V2/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache-yellow)](https://github.com/PKU-YuanGroup/UniWorld-V2/blob/main/LICENSE)
 
 ## Reproduction
 
