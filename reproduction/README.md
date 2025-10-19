@@ -9,7 +9,7 @@ python reproduction/sampling/sampling_qwen_gedit.py \
     --pretrained_name_or_path [pretrained_model] \
     --gedit_bench_path [gedit_bench_path] \
     --output_dir [absolute_output_path] \
-    --seed 42
+    --seed [seed]
 ```
 
 UniWorld-Qwen-Image-Edit [2509]:
@@ -19,7 +19,7 @@ python reproduction/sampling/sampling_qwen_gedit.py \
     --pretrained_name_or_path [pretrained_model] \
     --gedit_bench_path [gedit_bench_path] \
     --output_dir [absolute_output_path] \
-    --seed 42 \
+    --seed [seed] \
     --lora_path [our_lora]
 ```
 
@@ -32,8 +32,10 @@ Qwen Image Edit [2509] Baseline:
 ```
 python reproduction/sampling/sampling_qwen_imgedit.py \
     --pretrained_name_or_path [pretrained_model] \
-    --output_dir [absolute_output_path] \
-    --seed 42
+    --input_path "[singleturn_json]" \
+    --output_dir "[absolute_output_path]" \
+    --root_path "[singleturn_dir]" \
+    --seed [seed]
 ```
 
 UniWorld-Qwen-Image-Edit [2509]:
@@ -44,7 +46,7 @@ python reproduction/sampling/sampling_qwen_imgedit.py \
     --input_path "[singleturn_json]" \
     --output_dir "[absolute_output_path]" \
     --root_path "[singleturn_dir]" \
-    --seed 42 \
+    --seed [seed] \
     --lora_path [our_lora]
 ```
 
