@@ -84,7 +84,7 @@ def set_seed(seed: int, rank: int = 0):
     torch.backends.cudnn.benchmark = False
 
 
-class GenevalPromptImageDataset(Dataset):
+class PromptImageDataset(Dataset):
     def __init__(self, dataset, resolution=512, split="train"):
         self.dataset = dataset
         self.resolution = resolution
@@ -519,10 +519,10 @@ def main(_):
     )
 
     # --- Datasets and Dataloaders ---
-    train_dataset = GenevalPromptImageDataset(
+    train_dataset = PromptImageDataset(
         config.dataset, config.resolution, "train"
     )
-    test_dataset = GenevalPromptImageDataset(config.dataset, config.resolution, "test")
+    test_dataset = PromptImageDataset(config.dataset, config.resolution, "test")
 
     train_sampler = DistributedKRepeatSampler(
         dataset=train_dataset,
@@ -808,6 +808,7 @@ def main(_):
             }
             del sample_item["rewards_future"]
 
+        # Collate samples
         collated_samples = {}
         for k in samples_data_list[0].keys():
             try:

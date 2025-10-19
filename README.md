@@ -12,6 +12,17 @@ MLLM Implicit Feedback
 [![Model & Data](https://img.shields.io/badge/🤗-Model-blue.svg)](https://huggingface.co/collections/chestnutlzj/uniworld-r1-68dc3ecce74f5d37314d59f4)
 [![License](https://img.shields.io/badge/License-Apache-yellow)](https://github.com/PKU-YuanGroup/UniWorld-V2/blob/main/LICENSE)
 
+
+## Deploy vLLM Reward Server
+
+```
+python reward_server/reward_server.py
+```
+
+```
+python reward_server/test_reward_server.py
+```
+
 ## Reproduction
 
 See [Reproduction Details](reproduction/README.md).

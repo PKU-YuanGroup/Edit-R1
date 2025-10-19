@@ -85,7 +85,7 @@ def set_seed(seed: int, rank: int = 0):
     torch.backends.cudnn.benchmark = False
 
 
-class GenevalPromptImageDataset(Dataset):
+class PromptImageDataset(Dataset):
     def __init__(self, dataset, resolution=512, split="train"):
         self.dataset = dataset
         self.resolution = resolution
@@ -547,10 +547,10 @@ def main(_):
     )
 
     # --- Datasets and Dataloaders ---
-    train_dataset = GenevalPromptImageDataset(
+    train_dataset = PromptImageDataset(
         config.dataset, config.resolution, "train"
     )
-    test_dataset = GenevalPromptImageDataset(config.dataset, config.resolution, "test")
+    test_dataset = PromptImageDataset(config.dataset, config.resolution, "test")
 
     train_sampler = DistributedKRepeatSampler(
         dataset=train_dataset,
@@ -592,7 +592,7 @@ def main(_):
         stat_tracker = PerPromptStatTracker(
             config.sample.global_std,
             config.sample.ban_std_thres,
-            config.sample.ban_mean_thres
+            config.sample.ban_mean_thres,
         )
     else:
         assert False
@@ -1196,8 +1196,8 @@ def main(_):
                             .mean(dim=tuple(range(1, x0.ndim)), keepdim=True)
                             .clip(min=0.00001)
                         )
-                    if is_main_process(rank):
-                        print("x0_prediction", x0_prediction, x0_prediction.shape)
+                    # if is_main_process(rank):
+                    #     print("x0_prediction", x0_prediction, x0_prediction.shape)
                     positive_loss = ((x0_prediction - x0) ** 2 / weight_factor).mean(
                         dim=tuple(range(1, x0.ndim))
                     )
