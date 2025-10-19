@@ -17,10 +17,10 @@ def load_pipeline(pretrained_name_or_path: str, lora_path: Optional[str] = None)
     if lora_path:
         pipeline.load_lora_weights(
             lora_path,
-            weight_name="adapter_model_converted.safetensors",
+            weight_name="adapter_model.safetensors",
             adapter_name="lora",
         )
-        # pipeline.set_adapters(["lora"], adapter_weights=[1])
+        pipeline.set_adapters(["lora"], adapter_weights=[1])
         print("Lora path provided")
     else:
         print("No lora path provided, using origin model")

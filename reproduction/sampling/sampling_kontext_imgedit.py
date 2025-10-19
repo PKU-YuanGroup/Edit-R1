@@ -19,7 +19,7 @@ def process_slice(slice_items, pretrained_name_or_path, lora_path, output_dir, r
         print("Load lora", lora_path)
         pipe.load_lora_weights(
             lora_path,
-            weight_name="adapter_model_converted.safetensors",
+            weight_name="adapter_model.safetensors",
             adapter_name="lora",
         )
         pipe.set_adapters(["lora"], adapter_weights=[1])
