@@ -11,13 +11,13 @@ MLLM Implicit Feedback
 [![UniWorld-V2](https://img.shields.io/badge/Arxiv-UniWorldV2-b31b1b.svg?logo=arXiv)]()
 [![UniWorld-V1](https://img.shields.io/badge/Arxiv-UniWorldV1-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
 [![ImgEdit](https://img.shields.io/badge/Arxiv-ImgEdit-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
-[![Collection](https://img.shields.io/badge/🤗-Collection-blue.svg)](https://huggingface.co/collections/chestnutlzj/uniworld-r1-68dc3ecce74f5d37314d59f4)
+[![Collection](https://img.shields.io/badge/🤗-Collection-blue.svg)](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4)
 [![License](https://img.shields.io/badge/License-Apache-yellow)](https://github.com/PKU-YuanGroup/UniWorld-V2/blob/main/LICENSE)
 
 ## 📣 News
 
-**[2025/10/19]**: We release Edit-R1, which employs [DiffusionNFT](https://github.com/NVlabs/DiffusionNFT) and a training-free reward
-model derived from pretrained MLLMs to fine-tune diffusion models for image editing. Code and models are open-sourced.
+**[2025/10/19]**: We release **Edit-R1**, which employs [DiffusionNFT](https://github.com/NVlabs/DiffusionNFT) and a training-free reward
+model derived from pretrained MLLMs to fine-tune diffusion models for image editing. [Code](https://github.com/PKU-YuanGroup/UniWorld-V2) and [models](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4) are open-sourced.
 
 ## 🗝️ Train
 
