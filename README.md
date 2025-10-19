@@ -8,17 +8,28 @@ MLLM Implicit Feedback
   </a>
 </h2>
   
-[![UniWorld-V1](https://img.shields.io/badge/Arxiv-2506.03147-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
-[![Model & Data](https://img.shields.io/badge/🤗-Model-blue.svg)](https://huggingface.co/collections/chestnutlzj/uniworld-r1-68dc3ecce74f5d37314d59f4)
+[![UniWorld-V1](https://img.shields.io/badge/Arxiv-UniWorld-V1.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
+[![ImgEdit](https://img.shields.io/badge/Arxiv-ImgEdit.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
+[![UniWorld-V2](https://img.shields.io/badge/Arxiv-UniWorld-V2.svg?logo=arXiv)]()
+[![Collection](https://img.shields.io/badge/🤗-Collection-blue.svg)](https://huggingface.co/collections/chestnutlzj/uniworld-r1-68dc3ecce74f5d37314d59f4)
 [![License](https://img.shields.io/badge/License-Apache-yellow)](https://github.com/PKU-YuanGroup/UniWorld-V2/blob/main/LICENSE)
 
-## Train
+## 📣 News
+
+**[2025/10/19]**: We release Edit-R1, which employs [DiffusionNFT](https://github.com/NVlabs/DiffusionNFT) and a training-free reward
+model derived from pretrained MLLMs to fine-tune diffusion models for image editing. Code and models are open-sourced.
+
+## 🗝️ Train
 
 ### Deploy vLLM Reward Server
+
+Start the reward server:
 
 ```
 python reward_server/reward_server.py
 ```
+
+If you want to check the status of the reward server, you can test it by running:
 
 ```
 python reward_server/test_reward_server.py
@@ -39,13 +50,37 @@ torchrun --nproc_per_node=8 \
 
 And you can also refer to the example scripts in `examples/`.
 
-## Reproduction
+## ⚡️ Reproduction
 
 For reproducibility, we provide the reproduction scripts in `reproduction/`.
 
 See [Reproduction Details](reproduction/README.md) for more details.
 
-## Acknowledgement
+## 👍 Acknowledgement
 
 - [**DiffusionNFT**](https://github.com/NVlabs/DiffusionNFT): Huge thanks for their elegant codebase 🤩!
 - [Flow-GRPO](https://github.com/yifan123/flow_grpo)
+- [ImgEdit](https://github.com/PKU-YuanGroup/ImgEdit)
+- [UniWorld-V1](https://github.com/PKU-YuanGroup/UniWorld-V1)
+
+## 🔒 License
+
+See [LICENSE](LICENSE) for details. The FLUX weights fall under the [FLUX.1 [dev] Non-Commercial License](https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/LICENSE.md).
+
+## ✏️ Citation
+
+```
+@article{lin2025uniworld,
+  title={Uniworld: High-resolution semantic encoders for unified visual understanding and generation},
+  author={Lin, Bin and Li, Zongjian and Cheng, Xinhua and Niu, Yuwei and Ye, Yang and He, Xianyi and Yuan, Shenghai and Yu, Wangbo and Wang, Shaodong and Ge, Yunyang and others},
+  journal={arXiv preprint arXiv:2506.03147},
+  year={2025}
+}
+
+@article{ye2025imgedit,
+  title={Imgedit: A unified image editing dataset and benchmark},
+  author={Ye, Yang and He, Xianyi and Li, Zongjian and Lin, Bin and Yuan, Shenghai and Yan, Zhiyuan and Hou, Bohan and Yuan, Li},
+  journal={arXiv preprint arXiv:2505.20275},
+  year={2025}
+}
+```

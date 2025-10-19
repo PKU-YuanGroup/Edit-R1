@@ -2,6 +2,8 @@
 
 ## GEdit-Bench
 
+### Sampling
+
 Qwen Image Edit [2509] Baseline:
 
 ```
@@ -23,10 +25,14 @@ python reproduction/sampling/sampling_qwen_gedit.py \
     --lora_path [our_lora]
 ```
 
-> Refer to official evaluation code in GEdit. We highly recommend that set `temperature=0.0` before evaluation.
+### Evaluation
+
+Refer to official evaluation code in [GEdit-Bench](https://github.com/stepfun-ai/Step1X-Edit/tree/main/GEdit-Bench). We **highly recommend** that set `temperature=0.0` [here](https://github.com/stepfun-ai/Step1X-Edit/blob/main/GEdit-Bench/viescore/mllm_tools/openai.py#L137) before evaluation.
 
 ## ImgEdit
 
+### Sampling
+
 Qwen Image Edit [2509] Baseline:
 
 ```
@@ -50,4 +56,7 @@ python reproduction/sampling/sampling_qwen_imgedit.py \
     --lora_path [our_lora]
 ```
 
-> Refer to official evaluation code in ImgEdit. We highly recommend that set `temperature=0.0` before evaluation.
+
+### Evaluation
+
+Refer to official evaluation code in [ImgEdit](https://github.com/PKU-YuanGroup/ImgEdit). We **highly recommend** that set `temperature=0.0` [here](https://github.com/PKU-YuanGroup/ImgEdit/blob/main/Benchmark/Basic/basic_bench.py#L41) before evaluation.
