@@ -41,7 +41,7 @@ def mllm_score_continue(device):
     import pickle
 
     batch_size = 64
-    url = f"http://{os.getenv('REWARD_SERVER', 'localhost:12341')}/mode/score_continue"
+    url = f"http://{os.getenv('REWARD_SERVER', 'localhost:12341')}/mode/logits_non_cot"
     sess = requests.Session()
     retries = Retry(
         total=1000, backoff_factor=1, status_forcelist=[500], allowed_methods=False

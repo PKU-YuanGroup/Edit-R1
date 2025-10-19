@@ -11,7 +11,7 @@ import traceback
 from flask import Flask, request
 import ray
 import asyncio
-import prompt_vie
+import prompt_template
 
 if vllm.__version__ != "0.9.2":
     raise ValueError("vLLM version must be 0.9.2")
@@ -70,7 +70,7 @@ class ModelWorker:
                     {"type": "image_pil", "image_pil": image},
                     {
                         "type": "text",
-                        "text": prompt_vie.score_prompt.format(
+                        "text": prompt_template.SCORE_LOGIT.format(
                             prompt=prompt, requirement=requirement
                         ),
                     },
