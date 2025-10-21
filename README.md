@@ -103,4 +103,5 @@ See [LICENSE](LICENSE) for details. The FLUX weights fall under the [FLUX.1 [dev
   journal={arXiv preprint arXiv:2505.20275},
   year={2025}
 }
+
 ```
