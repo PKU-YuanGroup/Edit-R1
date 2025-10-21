@@ -35,6 +35,26 @@ If you want to check the status of the reward server, you can test it by running
 python reward_server/test_reward_server.py
 ```
 
+### Data Format
+
+Directory structure:
+
+```
+- dataset-dir
+  - images/
+     - YOUR_IMAGE_DATA
+     - ...
+  - train_metadata.jsonl
+  - test_metadata.jsonl
+```
+
+`train_metadata.jsonl` and `test_metadata.jsonl` format:
+
+```
+{"prompt": "PROMPT", "image": "IMAGE_RELATIVE_PATH", "requirement": "TASK_REQUIREMENT"}
+...
+```
+
 ### Configure Training
 
 See `config/qwen_image_edit_nft.py` and `config/kontext_nft.py` for available configurations.
