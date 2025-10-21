@@ -2,13 +2,13 @@
     <img src="https://s21.ax1x.com/2025/06/03/pVCBdw8.png" width="200"/>
 <p>
 <h2 align="center"> 
-  <a href="https://arxiv.org/abs/2506.03147">
+  <a href="https://arxiv.org/abs/2510.16888">
     UniWorld-V2: Reinforce Image Editing with Diffusion Negative-Aware Finetuning and
 MLLM Implicit Feedback
   </a>
 </h2>
 
-[![UniWorld-V2](https://img.shields.io/badge/Arxiv-UniWorldV2-b31b1b.svg?logo=arXiv)]()
+[![UniWorld-V2](https://img.shields.io/badge/Arxiv-UniWorldV2-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2510.16888)
 [![UniWorld-V1](https://img.shields.io/badge/Arxiv-UniWorldV1-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
 [![ImgEdit](https://img.shields.io/badge/Arxiv-ImgEdit-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2506.03147)
 [![Collection](https://img.shields.io/badge/🤗-Collection-blue.svg)](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4)
