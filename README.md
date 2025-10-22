@@ -24,7 +24,7 @@ model derived from pretrained MLLMs to fine-tune diffusion models for image edit
 | Original | Prompt | Nano-banana | GPT-4o | Qwen-Image-Edit | **UniWorld-V2 (Ours)** |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | <img src="imgs/0-0.jpg" width="200"> | **Case 1:** `把鸟移动到红框里，删除掉现在的鸟，最后移除红框` | <img src="imgs/0-1.webp" width="200"> | <img src="imgs/0-2.webp" width="200"> | <img src="imgs/0-3.webp" width="200"> | <img src="imgs/0-4.webp" width="200"> |
-| <img src="URL_TO_CASE2_ORIGINAL" width="200"> | **Case 2:** `Your prompt text here` | <img src="URL_TO_CASE2_NANO" width="200"> | <img src="URL_TO_CASE2_GPT4O" width="200"> | <img src="URL_TO_CASE2_QWEN" width="200"> | <img src="URL_TO_CASE2_UNIWORLD" width="200"> |
+| <img src="imgs/1-0.jpg" width="200"> | **Case 2:** `把中间白色衣服戴口罩女生的手势改成OK` | <img src="imgs/1-1.webp" width="200"> | <img src="imgs/1-2.webp" width="200"> | <img src="imgs/1-3.webp" width="200"> | <img src="imgs/1-4.webp" width="200"> |
 | <img src="URL_TO_CASE3_ORIGINAL" width="200"> | **Case 3:** `Your prompt text here` | <img src="URL_TO_CASE3_NANO" width="200"> | <img src="URL_TO_CASE3_GPT4O" width="200"> | <img src="URL_TO_CASE3_QWEN" width="200"> | <img src="URL_TO_CASE3_UNIWORLD" width="200"> |
 | <img src="URL_TO_CASE4_ORIGINAL" width="200"> | **Case 4:** `Your prompt text here` | <img src="URL_TO_CASE4_NANO" width="200"> | <img src="URL_TO_CASE4_GPT4O" width="200"> | <img src="URL_TO_CASE4_QWEN" width="200"> | <img src="URL_TO_CASE4_UNIWORLD" width="200"> |
 | <img src="URL_TO_CASE5_ORIGINAL" width="200"> | **Case 5:** `Your prompt text here` | <img src="URL_TO_CASE5_NANO" width="200"> | <img src="URL_TO_CASE5_GPT4O" width="200"> | <img src="URL_TO_CASE5_QWEN" width="200"> | <img src="URL_TO_CASE5_UNIWORLD" width="200"> |
