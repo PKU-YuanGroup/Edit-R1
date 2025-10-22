@@ -19,6 +19,16 @@ MLLM Implicit Feedback
 **[2025/10/19]**: We release **Edit-R1**, which employs [DiffusionNFT](https://github.com/NVlabs/DiffusionNFT) and a training-free reward
 model derived from pretrained MLLMs to fine-tune diffusion models for image editing. [UniWorld-Qwen-Image-Edit-2509](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4) and [UniWorld-FLUX.1-Kontext-Dev](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4) are open-sourced.
 
+## 🎨 Case Comparisons
+
+| Original | Prompt | Nano-banana | GPT-4o | Qwen-Image-Edit | **UniWorld-V2 (Ours)** |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| <img src="imgs/0-0.jpg" width="200"> | **Case 1:** `Your prompt text here` | <img src="URL_TO_CASE1_NANO" width="200"> | <img src="URL_TO_CASE1_GPT4O" width="200"> | <img src="URL_TO_CASE1_QWEN" width="200"> | <img src="URL_TO_CASE1_UNIWORLD" width="200"> |
+| <img src="URL_TO_CASE2_ORIGINAL" width="200"> | **Case 2:** `Your prompt text here` | <img src="URL_TO_CASE2_NANO" width="200"> | <img src="URL_TO_CASE2_GPT4O" width="200"> | <img src="URL_TO_CASE2_QWEN" width="200"> | <img src="URL_TO_CASE2_UNIWORLD" width="200"> |
+| <img src="URL_TO_CASE3_ORIGINAL" width="200"> | **Case 3:** `Your prompt text here` | <img src="URL_TO_CASE3_NANO" width="200"> | <img src="URL_TO_CASE3_GPT4O" width="200"> | <img src="URL_TO_CASE3_QWEN" width="200"> | <img src="URL_TO_CASE3_UNIWORLD" width="200"> |
+| <img src="URL_TO_CASE4_ORIGINAL" width="200"> | **Case 4:** `Your prompt text here` | <img src="URL_TO_CASE4_NANO" width="200"> | <img src="URL_TO_CASE4_GPT4O" width="200"> | <img src="URL_TO_CASE4_QWEN" width="200"> | <img src="URL_TO_CASE4_UNIWORLD" width="200"> |
+| <img src="URL_TO_CASE5_ORIGINAL" width="200"> | **Case 5:** `Your prompt text here` | <img src="URL_TO_CASE5_NANO" width="200"> | <img src="URL_TO_CASE5_GPT4O" width="200"> | <img src="URL_TO_CASE5_QWEN" width="200"> | <img src="URL_TO_CASE5_UNIWORLD" width="200"> |
+
 ## 🗝️ Train
 
 ### Deploy vLLM Reward Server
