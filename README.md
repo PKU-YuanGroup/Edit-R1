@@ -103,7 +103,7 @@ See [LICENSE](LICENSE) for details. The FLUX weights fall under the [FLUX.1 [dev
 @article{li2025uniworldv2,
     title={Uniworld-V2: Reinforce Image Editing with Diffusion Negative-aware Finetuning and MLLM Implicit Feedback},
     author={Li, Zongjian and Liu, Zheyuan and Zhang, Qihui and Lin, Bin and Yuan, Shenghai and Yan, Zhiyuan and Ye, Yang and Yu, Wangbo and Niu, Yuwei and Yuan, Li},
-    journal={arXiv preprint arXiv:2506.03147},
+    journal={arXiv preprint arXiv:2510.16888},
     year={2025}
 }
 
