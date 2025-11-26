@@ -28,16 +28,21 @@ def _get_qwen_prompt_embeds(
     dtype = dtype or self.text_encoder.dtype
     prompt = [prompt] if isinstance(prompt, str) else prompt
     img_prompt_template = "Picture {}: <|vision_start|><|image_pad|><|vision_end|>"
+    # 修复：为每个样本生成独立的图片提示
     base_img_prompt_list = []
     if isinstance(image, list):
-        for i, img in enumerate(image):
-            base_img_prompt = img_prompt_template.format(i + 1)
+        # 每个样本都是 Picture 1（因为每个样本只有一张图）
+        for _ in image:
+            base_img_prompt = img_prompt_template.format(1)
             base_img_prompt_list.append(base_img_prompt)
+        # 将单个图片包装成列表（适配 processor 的输入格式）
+        image = [[img] for img in image]
     elif image is not None:
         base_img_prompt = img_prompt_template.format(1)
         base_img_prompt_list.append(base_img_prompt)
+        image = [[image]]
     else:
-        base_img_prompt = ""
+        base_img_prompt_list = [""] * len(prompt)
     template = self.prompt_template_encode
     drop_idx = self.prompt_template_encode_start_idx
     txt = [template.format(base_img_prompt + e) for base_img_prompt, e in zip(base_img_prompt_list, prompt)]
@@ -98,6 +103,69 @@ def encode_prompt(
     prompt_embeds_mask = prompt_embeds_mask.view(batch_size * num_images_per_prompt, seq_len)
     return prompt_embeds, prompt_embeds_mask
 
+
+def prepare_latents(
+    self,
+    images,
+    batch_size,
+    num_channels_latents,
+    height,
+    width,
+    dtype,
+    device,
+    generator,
+    latents=None,
+):
+    # VAE applies 8x compression on images but we must also account for packing which requires
+    # latent height and width to be divisible by 2.
+    height = 2 * (int(height) // (self.vae_scale_factor * 2))
+    width = 2 * (int(width) // (self.vae_scale_factor * 2))
+
+    shape = (batch_size, 1, num_channels_latents, height, width)
+
+    image_latents = None
+    if images is not None:
+        if not isinstance(images, list):
+            images = [images]
+        all_image_latents = []
+        for image in images:
+            image = image.to(device=device, dtype=dtype)
+            if image.shape[1] != self.latent_channels:
+                image_latents = self._encode_vae_image(image=image, generator=generator)
+            else:
+                image_latents = image
+            # if batch_size > image_latents.shape[0] and batch_size % image_latents.shape[0] == 0:
+            #     # expand init_latents for batch_size
+            #     additional_image_per_prompt = batch_size // image_latents.shape[0]
+            #     image_latents = torch.cat([image_latents] * additional_image_per_prompt, dim=0)
+            # elif batch_size > image_latents.shape[0] and batch_size % image_latents.shape[0] != 0:
+            #     raise ValueError(
+            #         f"Cannot duplicate `image` of batch size {image_latents.shape[0]} to {batch_size} text prompts."
+            #     )
+            # else:
+            #     image_latents = torch.cat([image_latents], dim=0)
+
+            image_latent_height, image_latent_width = image_latents.shape[3:]
+            image_latents = self._pack_latents(
+                image_latents, 1, num_channels_latents, image_latent_height, image_latent_width
+            )
+
+            all_image_latents.append(image_latents)
+        image_latents = torch.cat(all_image_latents, dim=0)
+
+
+    if isinstance(generator, list) and len(generator) != batch_size:
+        raise ValueError(
+            f"You have passed a list of generators of length {len(generator)}, but requested an effective batch"
+            f" size of {batch_size}. Make sure the batch size matches the length of the generators."
+        )
+    if latents is None:
+        latents = randn_tensor(shape, generator=generator, device=device, dtype=dtype)
+        latents = self._pack_latents(latents, batch_size, num_channels_latents, height, width)
+    else:
+        latents = latents.to(device=device, dtype=dtype)
+
+    return latents, image_latents
 @torch.no_grad()
 def pipeline_with_logprob(
     self,
@@ -211,6 +279,7 @@ def pipeline_with_logprob(
     # Preprocess image
     num_channels_latents = self.transformer.config.in_channels // 4
     latents, image_latents = self.prepare_latents(
+        self,
         vae_images,
         batch_size * num_images_per_prompt,
         num_channels_latents,
@@ -221,13 +290,11 @@ def pipeline_with_logprob(
         generator,
         latents,
     )
+    vae_width, vae_height = vae_image_sizes[0]
     img_shapes = [
         [
             (1, height // self.vae_scale_factor // 2, width // self.vae_scale_factor // 2),
-            *[
-                (1, vae_height // self.vae_scale_factor // 2, vae_width // self.vae_scale_factor // 2)
-                for vae_width, vae_height in vae_image_sizes
-            ],
+            (1, vae_height // self.vae_scale_factor // 2, vae_width // self.vae_scale_factor // 2),
         ]
     ] * batch_size
 
