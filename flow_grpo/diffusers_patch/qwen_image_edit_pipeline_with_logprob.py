@@ -278,7 +278,7 @@ def pipeline_with_logprob(
     
     # Preprocess image
     num_channels_latents = self.transformer.config.in_channels // 4
-    latents, image_latents = self.prepare_latents(
+    latents, image_latents = prepare_latents(
         self,
         vae_images,
         batch_size * num_images_per_prompt,
