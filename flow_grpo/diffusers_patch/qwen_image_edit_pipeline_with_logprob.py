@@ -28,14 +28,11 @@ def _get_qwen_prompt_embeds(
     dtype = dtype or self.text_encoder.dtype
     prompt = [prompt] if isinstance(prompt, str) else prompt
     img_prompt_template = "Picture {}: <|vision_start|><|image_pad|><|vision_end|>"
-    # 修复：为每个样本生成独立的图片提示
     base_img_prompt_list = []
     if isinstance(image, list):
-        # 每个样本都是 Picture 1（因为每个样本只有一张图）
         for _ in image:
             base_img_prompt = img_prompt_template.format(1)
             base_img_prompt_list.append(base_img_prompt)
-        # 将单个图片包装成列表（适配 processor 的输入格式）
         image = [[img] for img in image]
     elif image is not None:
         base_img_prompt = img_prompt_template.format(1)
