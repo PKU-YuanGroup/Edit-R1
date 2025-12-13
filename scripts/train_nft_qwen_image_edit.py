@@ -531,7 +531,7 @@ def main(_):
         num_replicas=world_size,
         rank=rank,
         seed=config.seed,
-        banned_prompts=None,  # 初始为空
+        banned_prompts=None,
     )
     train_dataloader = DataLoader(
         train_dataset,
