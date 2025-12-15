@@ -19,17 +19,6 @@ MLLM Implicit Feedback
 **[2025/10/19]**: We release **Edit-R1**, which employs [DiffusionNFT](https://github.com/NVlabs/DiffusionNFT) and a training-free reward
 model derived from pretrained MLLMs to fine-tune diffusion models for image editing. [UniWorld-Qwen-Image-Edit-2509](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4) and [UniWorld-FLUX.1-Kontext-Dev](https://huggingface.co/collections/chestnutlzj/edit-r1-68dc3ecce74f5d37314d59f4) are open-sourced.
 
-## 🎨 Case Comparisons
-
-| Original | Prompt | Nano-banana | GPT-4o | Qwen-Image-Edit | **UniWorld-V2 (Ours)** |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| <img src="imgs/0-0.jpg" width="400"> | **Case 1:** `把鸟移动到红框里，删除掉现在的鸟，最后移除红框` | <img src="imgs/0-1.webp" width="400"> | <img src="imgs/0-2.webp" width="400"> | <img src="imgs/0-3.webp" width="400"> | <img src="imgs/0-4.webp" width="400"> （✅正确执行指令）|
-| <img src="imgs/1-0.jpg" width="400"> | **Case 2:** `把中间白色衣服戴口罩女生的手势改成OK` | <img src="imgs/1-1.webp" width="400"> | <img src="imgs/1-3.webp" width="400"> | <img src="imgs/1-2.webp" width="400"> | <img src="imgs/1-4.webp" width="400">  （✅OK手势 ）|
-| <img src="imgs/2-0.jpg" width="400"> | **Case 3:** `提取画面中的吉他` | <img src="imgs/2-1.webp" width="400"> | <img src="imgs/2-2.webp" width="400"> | <img src="imgs/2-3.webp" width="400"> | <img src="imgs/2-4.webp" width="400">（✅弦钮上二下三 ） |
-| <img src="imgs/3-0.png" width="400"> | **Case 4:** `把下面的所有文字并改用书法体。中间的“月满中秋”改成“千里团圆”。并且把月亮改成模糊的月饼。` | <img src="imgs/3-1.webp" width="400"> | <img src="imgs/3-2.webp" width="400"> | <img src="imgs/3-3.webp" width="400"> | <img src="imgs/3-4.webp" width="400"> （✅模糊月饼，✅书法字体）|
-| <img src="imgs/4-0.jpg" width="400"> | **Case 5:** `让画面中的形象坐在高档西餐厅，双手拿刀叉吃牛排` | <img src="imgs/4-1.webp" width="400"> | <img src="imgs/4-2.webp" width="400"> | <img src="imgs/4-3.webp" width="400"> | <img src="imgs/4-4.webp" width="400"> （✅人物特征，✅刀叉）|
-| <img src="imgs/5-0.jpg" width="400"> | **Case 6:** `在中间人物身上添加 3D 网格，精确覆盖衣服褶皱、头发和细节 ` | <img src="imgs/5-1.webp" width="400"> | <img src="imgs/5-2.webp" width="400"> | <img src="imgs/5-3.webp" width="400"> | <img src="imgs/5-4.webp" width="400"> （✅精确覆盖）|
-
 ## 🚀 Environment Set Up
 Clone this repository and install packages.
 ```bash
@@ -131,3 +120,14 @@ See [LICENSE](LICENSE) for details. The FLUX weights fall under the [FLUX.1 [dev
   year={2025}
 }
 ```
+
+## 🎨 Case Comparisons
+
+| Original | Prompt | Nano-banana | GPT-4o | Qwen-Image-Edit | **UniWorld-V2 (Ours)** |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| <img src="imgs/0-0.jpg" width="400"> | **Case 1:** `把鸟移动到红框里，删除掉现在的鸟，最后移除红框` | <img src="imgs/0-1.webp" width="400"> | <img src="imgs/0-2.webp" width="400"> | <img src="imgs/0-3.webp" width="400"> | <img src="imgs/0-4.webp" width="400"> （✅正确执行指令）|
+| <img src="imgs/1-0.jpg" width="400"> | **Case 2:** `把中间白色衣服戴口罩女生的手势改成OK` | <img src="imgs/1-1.webp" width="400"> | <img src="imgs/1-3.webp" width="400"> | <img src="imgs/1-2.webp" width="400"> | <img src="imgs/1-4.webp" width="400">  （✅OK手势 ）|
+| <img src="imgs/2-0.jpg" width="400"> | **Case 3:** `提取画面中的吉他` | <img src="imgs/2-1.webp" width="400"> | <img src="imgs/2-2.webp" width="400"> | <img src="imgs/2-3.webp" width="400"> | <img src="imgs/2-4.webp" width="400">（✅弦钮上二下三 ） |
+| <img src="imgs/3-0.png" width="400"> | **Case 4:** `把下面的所有文字并改用书法体。中间的“月满中秋”改成“千里团圆”。并且把月亮改成模糊的月饼。` | <img src="imgs/3-1.webp" width="400"> | <img src="imgs/3-2.webp" width="400"> | <img src="imgs/3-3.webp" width="400"> | <img src="imgs/3-4.webp" width="400"> （✅模糊月饼，✅书法字体）|
+| <img src="imgs/4-0.jpg" width="400"> | **Case 5:** `让画面中的形象坐在高档西餐厅，双手拿刀叉吃牛排` | <img src="imgs/4-1.webp" width="400"> | <img src="imgs/4-2.webp" width="400"> | <img src="imgs/4-3.webp" width="400"> | <img src="imgs/4-4.webp" width="400"> （✅人物特征，✅刀叉）|
+| <img src="imgs/5-0.jpg" width="400"> | **Case 6:** `在中间人物身上添加 3D 网格，精确覆盖衣服褶皱、头发和细节 ` | <img src="imgs/5-1.webp" width="400"> | <img src="imgs/5-2.webp" width="400"> | <img src="imgs/5-3.webp" width="400"> | <img src="imgs/5-4.webp" width="400"> （✅精确覆盖）|
