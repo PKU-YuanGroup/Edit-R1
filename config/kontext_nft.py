@@ -75,7 +75,6 @@ def kontext_mllm_reward():
         base_model="kontext",
         n_gpus=24,
         gradient_step_per_epoch=1,
-        dataset="geneval",
         reward_fn=reward_fn,
         name="mllm_score_continue",
     )
@@ -89,7 +88,6 @@ def kontext_mllm_reward_ban_prompt():
         base_model="kontext",
         n_gpus=24,
         gradient_step_per_epoch=1,
-        dataset="geneval",
         reward_fn=reward_fn,
         name="mllm_score_continue_ban_prompt",
     )

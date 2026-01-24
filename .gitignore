@@ -324,3 +324,5 @@ experiments
 evaluations
 _legacy
 *_reproduction/
+*.zip
+edit-r1-dataset/
