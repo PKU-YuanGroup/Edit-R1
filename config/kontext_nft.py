@@ -25,6 +25,7 @@ def _get_config(base_model="kontext", n_gpus=1, gradient_step_per_epoch=1, rewar
     config.sample.num_image_per_prompt = 12
 
     config.sample.ban_std_thres = 0.05
+    config.sample.ban_mean_thres = 0.9
     config.sample.ban_prompt = False
 
     num_groups = 24
